@@ -20,7 +20,7 @@ import com.devsuperior.movieflix.tests.TokenUtil;
 @SpringBootTest
 @AutoConfigureMockMvc
 @Transactional
-public class UserControllerIT {
+class UserControllerIT {
 
 	@Autowired
 	private MockMvc mockMvc;
@@ -43,7 +43,7 @@ public class UserControllerIT {
 	}
 	
 	@Test
-	public void getProfileShouldReturnSelfWhenVisitorLogged() throws Exception {
+	void getProfileShouldReturnSelfWhenVisitorLogged() throws Exception {
 		
 		String accessToken = tokenUtil.obtainAccessToken(mockMvc, visitorUsername, visitorPassword);
 
@@ -59,7 +59,7 @@ public class UserControllerIT {
 	}
 
 	@Test
-	public void getProfileShouldReturnSelfWhenMemberLogged() throws Exception {
+	void getProfileShouldReturnSelfWhenMemberLogged() throws Exception {
 		
 		String accessToken = tokenUtil.obtainAccessToken(mockMvc, memberUsername, memberPassword);
 
@@ -75,7 +75,7 @@ public class UserControllerIT {
 	}
 
 	@Test
-	public void getProfileShouldReturnUnauthorizedWhenNoUserLogged() throws Exception {
+	void getProfileShouldReturnUnauthorizedWhenNoUserLogged() throws Exception {
 		
 		ResultActions result =
 				mockMvc.perform(get("/users/profile")
